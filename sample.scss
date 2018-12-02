@@ -1,0 +1,301 @@
+@import "bourbon";
+@import "susy";
+@import "neat";
+$img_path: '../images/';
+//------------------------
+//基本設計
+//------------------------
+:root{
+  font-size: 16px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+h1{
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+section{
+  margin-bottom: 50px;
+}
+body{
+  font-family: "Noto Sans JP";
+}
+
+//横幅関係
+$w_base: 1200px;
+$w_main: 800px;
+$w_side: 360px;
+
+//フォント
+$font_base: "Yu Gothic";
+$font_serif: "Yu Mincho";
+
+//色
+$col_main: #000;
+$col_sub: #000;
+$col_font: #000;
+$col_link: #000;
+
+//ブレイクポイント
+//@include media(s){}
+$breakpoints: (
+    xs: "only screen and (max-width: 320px)",
+    s: "only screen and (max-width: 575px)",
+    m: "only screen and (max-width: 767px)",
+    l: "only screen and (max-width: 991px)",
+    xl: "only screen and (max-width: 1199px)",
+);
+@mixin media($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{map-get($breakpoints, $breakpoint)} {
+            @content;
+        }
+    }
+    @else {
+        @error "$breakpoints に #{$breakpoint} ってキーは無いよ！";
+    }
+}
+
+
+
+//clearfix
+@mixin clearfix{
+  &::after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+
+//基本設計END-------------------------------------
+#main{
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+//よくある2カラム----------------------------------------------
+.row_side{
+  $padding: 10px;
+  display: flex;
+  margin-left: -$padding;
+  margin-right: -$padding;
+  .col_main,
+  .col_side{
+    padding: $padding;
+  }
+  .col_main{
+    flex: 1;
+  }
+  .col_side{
+    flex-basis: 30%;
+  }
+}
+//dlテーブル(モバイルファースト)----------------------------------------------
+.dl_table{
+  display:flex;
+  flex-flow: column nowrap;
+  border: 1px solid #ccc;
+  border-top: 0;
+  dt,dd{
+    padding: 10px;
+    margin: 0;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  dt{
+    background: #ddd;
+  }
+  dd{
+    background: #fff;
+  }
+}
+@media screen and (min-width: 640px) {
+  $dt_width: 30%;
+  .dl_table{
+    flex-flow: row wrap;
+    dt,dd{
+    }
+    dt{
+      width: $dt_width;
+    }
+    dd{
+      width: 100% - $dt_width;
+      border-left: 1px solid #ccc;
+    }
+  }
+}
+//dlテーブル(普通)----------------------------------------------
+.dl_table_fix{
+  $dt_width: 30%;
+  display:flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  border-top: none;
+  dt,dd{
+    padding: 10px;
+    margin: 0;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  dt{
+    width: $dt_width;
+    background: #ddd;
+  }
+  dd{
+    width: 100% - $dt_width;
+    background: #fff;
+    border-left: 1px solid #ccc;
+  }
+}
+
+//SNSリスト----------------------------------------------
+$sns-colors: (
+    twitter: '01.png' '#1b95e0',
+    facebook: '02.jpg' '#3b5998',
+    googleplus: 'gplus.png' '#dc4e41',
+);
+.sns_btn_list{
+  display: flex;
+  padding: 0;
+  .sns_btn{
+    $size: 40px;
+    $font-size: 22px;
+    list-style: none;
+    a{
+      display: inline-block;
+      color: #fff;
+      width: $size;
+      height: $size;
+      font-size: $font-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:link,
+      &:visited{color: #fff;text-decoration: none;}
+      &:hover{color: #fff;text-decoration: none;}
+    }
+    &_tw a{//twitter
+      background: #00aced ;
+    }
+    &_li a{//line
+      background: #1dcd00 ;
+    }
+    &_yo a{//youtube
+      background: #ff0000 ;
+    }
+    &_fa a{//facebook
+      background: #305097 ;
+    }
+    &_in a{//instagram
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+    }
+    &_in a i{
+      z-index: 1;
+    }
+    &_in a::before{
+      content: '';
+      position: absolute;
+      z-index: 0;
+      top: 46%;
+      left: -36%;
+      width: 120%;
+      height: 120%;
+      background: radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+    }
+  }
+}
+
+
+//ハンバーガー----------------------------------------------
+//開閉ボタン
+.g_nav_ico{
+  display: block;
+  width: 45px;
+  height: 45px;
+  position: relative;
+  z-index: 100;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inner {
+    position: relative;
+    width: 19px;
+    height: 16px;
+    span{
+      display: block;
+      height: 2px;
+      background: #fff;
+      position:absolute;
+      width: 100%;
+      left: 0;
+      transition: 0.3s ease-in-out;
+      &:nth-child(1){
+        top:0;
+      }
+      &:nth-child(2){
+        top:50%;
+        transform: translateY(-50%);
+      }
+      &:nth-child(3){
+        bottom:0;
+      }
+    }
+  }
+}
+//開閉ボタンopen時
+.open{
+  .g_nav_ico .inner span{
+    &:nth-child(1) {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    &:nth-child(2) {
+      width: 0;
+      opacity: 0;
+      left: 50%;
+    }
+    &:nth-child(3) {
+      bottom: 50%;
+      transform: translateY(50%) rotate(-45deg);
+    }
+  }
+}
+//いらない部分
+.g_header{
+  position: relative;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: flex-end;
+  .g_nav{
+    display: none;position: absolute;top: 45px;left: 0;width: 100%;
+    background: rgba(0, 0, 0, .9);
+    ul{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      li{
+        text-align: center;
+        border-bottom: 1px solid #555;
+        &:last-child{border-bottom: 0;}
+        a{
+          color: #fff;
+          padding: 5px 0;
+          display: block;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

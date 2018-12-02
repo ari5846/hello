@@ -1,0 +1,97 @@
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="./common/reset.css">
+  <link rel="stylesheet" href="./common/sample.css">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body class="top">
+
+  <div id="main">
+    <header class="g_header">
+        <div class="inner">
+          <div class="g_nav_ico">
+            <div class="inner">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <nav class="g_nav">
+            <ul>
+              <li><a href="#">MENU1</a></li>
+              <li><a href="#">MENU2</a></li>
+              <li><a href="#">MENU3</a></li>
+              <li><a href="#">MENU4</a></li>
+              <li><a href="#">MENU5</a></li>
+            </ul>
+          </nav>
+        </div>
+        <script type="text/javascript">
+          $(function(){
+          $('.g_nav_ico').click(function(){
+            $(".g_header").toggleClass('open');
+            $(".g_nav").slideToggle(500);
+          });
+          });
+        </script>
+    </header>
+    <section>
+      <h1>2カラム</h1>
+      <div class="row_side">
+        <div class="col_side">1列目</div>
+        <div class="col_main">2列目</div>
+      </div>
+    </section>
+    <section>
+      <h1>dlテーブル(レスポンシブ)</h1>
+      <div class="row">
+        <dl class="dl_table">
+          <dt>この文章はダミーです。</dt>
+          <dd>この文章はダミーです。この文章はダミーです。この文章はダミーです。</dd>
+          <dt>この文章はダミーです。</dt>
+          <dd>この文章はダミーです。この文章はダミーです。この文章はダミーです。</dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <h1>dlテーブル</h1>
+      <div class="row">
+        <dl class="dl_table_fix">
+          <dt>この文章はダミーです。</dt>
+          <dd>この文章はダミーです。この文章はダミーです。この文章はダミーです。</dd>
+          <dt>この文章はダミーです。</dt>
+          <dd>この文章はダミーです。この文章はダミーです。この文章はダミーです。</dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <h1>SNSアイコン</h1>
+      <ul class="sns_btn_list">
+        <li class="sns_btn sns_btn_tw"><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="sns_btn sns_btn_in"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="sns_btn sns_btn_li"><a href="#"><i class="fab fa-line"></i></a></li>
+        <li class="sns_btn sns_btn_yo"><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+    </section>
+    <section>
+      <h1>SNSアイコン</h1>
+      <ul class="sns_btn_list">
+        <li class="sns_btn sns_btn_tw"><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li class="sns_btn sns_btn_in"><a href="#"><i class="fab fa-instagram"></i></a></li>
+        <li class="sns_btn sns_btn_li"><a href="#"><i class="fab fa-line"></i></a></li>
+        <li class="sns_btn sns_btn_yo"><a href="#"><i class="fab fa-youtube"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+        <li class="sns_btn sns_btn_fa"><a href="#"><i class="fab fa-facebook"></i></a></li>
+      </ul>
+    </section>
+  <!-- / #main --></div>
+</body>
